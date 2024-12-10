@@ -93,11 +93,11 @@ function ExitResizeMode()
 end
 
 -- Noice
-vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
-vim.keymap.set("n", "<leader>ndb", "<cmd>NoiceDisable<CR>", { desc = "Dismiss Noice Message" })
-vim.keymap.set("n", "<leader>ne", "<cmd>NoiceEnable<CR>", { desc = "Dismiss Noice Message" })
-vim.keymap.set("n", "<leader>nl", "<cmd>NoiceLast<CR>", { desc = "Dismiss Noice Message" })
-vim.keymap.set("n", "<leader>nt", "<cmd>NoiceTelescope<CR>", { desc = "Dismiss Noice Message" })
+vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "[N]oice [D]ismiss" })
+vim.keymap.set("n", "<leader>ndb", "<cmd>NoiceDisable<CR>", { desc = "[N]oice [D]isa[b]le" })
+vim.keymap.set("n", "<leader>ne", "<cmd>NoiceEnable<CR>", { desc = "[N]oice [E]nable" })
+vim.keymap.set("n", "<leader>nl", "<cmd>NoiceLast<CR>", { desc = "[N]oice [L]ast message" })
+vim.keymap.set("n", "<leader>nt", "<cmd>NoiceTelescope<CR>", { desc = "[N]oice [T]elescope" })
 --[[
 --
 - `:Noice` or `:Noice history` shows the message history
