@@ -85,3 +85,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
     rename_tmux_window()
   end,
 })
+
+-- Obsidian conceallevel for UI to work
+vim.opt.conceallevel = 1
