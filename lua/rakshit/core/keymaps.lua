@@ -136,3 +136,7 @@ vim.keymap.set("n", "<leader>lc", "<cmd>Leet console<CR>", { desc = "[L]eetcode 
 vim.keymap.set("n", "<leader>ln", "<cmd>Leet info<CR>", { desc = "[L]eetcode I[n]fo" })
 vim.keymap.set("n", "<leader>lt", "<cmd>Leet tabs<CR>", { desc = "[L]eetcode [T]abs" })
 vim.keymap.set("n", "<leader>le", "<cmd>Leet reset<CR>", { desc = "[L]eetcode R[e]set code definition" })
+
+-- Markdown Preview
+vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreview<CR>", { desc = "[M]arkdown [P]review" })
+vim.keymap.set("n", "<leader>mps", "<cmd>MarkdownPreviewStop<CR>", { desc = "[M]arkdown [P]review [S]top" })
