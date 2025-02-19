@@ -51,6 +51,8 @@ return {
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
     local util = require("lspconfig/util")
+
+    -- Golang
     lspconfig.gopls.setup({
       cmd = { "gopls" },
       filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -61,6 +63,68 @@ return {
           usePlaceholders = true,
           analyses = {
             unusedparams = true,
+          },
+        },
+      },
+    })
+
+    -- TypeScript and JavaScript
+    lspconfig.ts_ls.setup({
+      cmd = { "typescript-language-server", "--stdio" },
+      filetypes = {
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+      },
+      root_dir = util.root_pattern(".git", "tsconfig.json", "package.json"),
+      settings = {
+        documentFormatting = true,
+      },
+    })
+
+    -- Java
+    -- lspconfig.jdtls.setup({
+    --   cmd = { "jdtls" },
+    --   filetypes = { "java" },
+    --   root_dir = util.root_pattern(".git", "mvnw", "gradlew"),
+    --   settings = {
+    --     java = {
+    --       completion = {
+    --         enabled = true,
+    --       },
+    --       settings = {
+    --         contentProvider = "fernflower",
+    --       },
+    --     },
+    --   },
+    -- })
+
+    -- HTML
+    lspconfig.html.setup({
+      cmd = { "html-languageserver", "--stdio" },
+      filetypes = { "html", "htmldjango" },
+      root_dir = util.root_pattern("index.html", ".git"),
+      settings = {
+        html = {
+          hover = true,
+          suggest = { html5 = true },
+        },
+      },
+    })
+
+    -- Python
+    lspconfig.pyright.setup({
+      cmd = { "pyright" },
+      filetypes = { "python" },
+      root_dir = util.root_pattern("pyrightconfig.json", ".git"),
+      settings = {
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true,
           },
         },
       },
@@ -130,6 +194,61 @@ return {
         vim.bo.tabstop = 4 -- Display each tab as 4 spaces
         vim.bo.shiftwidth = 4 -- Indentation size of 4 spaces
         vim.bo.softtabstop = 4 -- <Tab> key inserts 4 spaces
+      end,
+    })
+
+    -- Configure Neovim tab settings for TypeScript files
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "typescript,typescriptreact", -- TypeScript and TypeScript React
+      callback = function()
+        vim.bo.expandtab = true
+        vim.bo.tabstop = 2
+        vim.bo.shiftwidth = 2
+        vim.bo.softtabstop = 2
+      end,
+    })
+
+    -- Configure Neovim tab settings for JavaScript files
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "javascript,javascriptreact", -- JavaScript and JavaScript React
+      callback = function()
+        vim.bo.expandtab = true
+        vim.bo.tabstop = 2
+        vim.bo.shiftwidth = 2
+        vim.bo.softtabstop = 2
+      end,
+    })
+
+    -- Configure Neovim tab settings for Python files
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "python",
+      callback = function()
+        vim.bo.expandtab = true
+        vim.bo.tabstop = 4
+        vim.bo.shiftwidth = 4
+        vim.bo.softtabstop = 4
+      end,
+    })
+
+    -- Configure Neovim tab settings for Java files
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "java",
+      callback = function()
+        vim.bo.expandtab = true
+        vim.bo.tabstop = 4
+        vim.bo.shiftwidth = 4
+        vim.bo.softtabstop = 4
+      end,
+    })
+
+    -- Configure Neovim tab settings for HTML files
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "html",
+      callback = function()
+        vim.bo.expandtab = true
+        vim.bo.tabstop = 2
+        vim.bo.shiftwidth = 2
+        vim.bo.softtabstop = 2
       end,
     })
 

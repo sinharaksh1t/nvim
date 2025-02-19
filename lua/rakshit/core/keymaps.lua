@@ -94,10 +94,10 @@ end
 
 -- Noice
 vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
-vim.keymap.set("n", "<leader>ndb", "<cmd>NoiceDisable<CR>", { desc = "Dismiss Noice Message" })
-vim.keymap.set("n", "<leader>ne", "<cmd>NoiceEnable<CR>", { desc = "Dismiss Noice Message" })
-vim.keymap.set("n", "<leader>nl", "<cmd>NoiceLast<CR>", { desc = "Dismiss Noice Message" })
-vim.keymap.set("n", "<leader>nt", "<cmd>NoiceTelescope<CR>", { desc = "Dismiss Noice Message" })
+vim.keymap.set("n", "<leader>ndb", "<cmd>NoiceDisable<CR>", { desc = "Disable Noice" })
+vim.keymap.set("n", "<leader>ne", "<cmd>NoiceEnable<CR>", { desc = "Enable Noice" })
+vim.keymap.set("n", "<leader>nl", "<cmd>NoiceLast<CR>", { desc = "Last Noice Message" })
+vim.keymap.set("n", "<leader>nt", "<cmd>NoiceTelescope<CR>", { desc = "Open Noice in Telescope" })
 --[[
 --
 - `:Noice` or `:Noice history` shows the message history
