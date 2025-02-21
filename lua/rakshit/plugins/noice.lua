@@ -26,5 +26,25 @@ return {
       inc_rename = false, -- enables an input dialog for inc-rename.nvim
       lsp_doc_border = false, -- add a border to hover docs and signature help
     },
+
+    -- Skip validation messages from jdtls
+    routes = {
+      {
+        filter = {
+          event = "lsp",
+          kind = "progress",
+          cond = function(message)
+            local client = vim.tbl_get(message.opts, "progress", "client")
+            if client == "jdtls" then
+              local content = vim.tbl_get(message.opts, "progress", "message")
+              return content == "Validate documents" or content == "Publish Diagnostics"
+            end
+
+            return false
+          end,
+        },
+        opts = { skip = true },
+      },
+    },
   },
 }
