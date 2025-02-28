@@ -38,7 +38,6 @@ return {
         "pyright",
         "gopls",
         "ts_ls",
-        "jdtls",
       },
     })
 
